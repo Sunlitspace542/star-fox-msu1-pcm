@@ -122,6 +122,13 @@ def build_plan(
     return plan
 
 
+def find_missing_destinations(
+    files: list[tuple[Path, str, int]], mapping: dict[int, int]
+) -> list[int]:
+    found_track_numbers = {track_num for _, _, track_num in files}
+    return [dest for source, dest in mapping.items() if source not in found_track_numbers]
+
+
 def ensure_no_conflicts(plan: list[tuple[Path, Path, int, int]]) -> list[str]:
     problems: list[str] = []
     target_counts: dict[Path, int] = {}
@@ -136,10 +143,15 @@ def ensure_no_conflicts(plan: list[tuple[Path, Path, int, int]]) -> list[str]:
 
 
 def execute_plan(
-    plan: list[tuple[Path, Path, int, int]], dry_run: bool, output_folder: Path | None
+    plan: list[tuple[Path, Path, int, int]],
+    dry_run: bool,
+    output_folder: Path | None,
+    missing_destinations: list[int],
 ) -> None:
     if not plan:
         print("No files to remap.")
+        if missing_destinations:
+            print_missing_destinations(missing_destinations)
         return
 
     print(f"Remap plan ({len(plan)} files):")
@@ -148,6 +160,8 @@ def execute_plan(
 
     if dry_run:
         print("Dry run enabled; no files were changed.")
+        if missing_destinations:
+            print_missing_destinations(missing_destinations)
         return
 
     if output_folder is not None:
@@ -157,6 +171,8 @@ def execute_plan(
                 raise FileExistsError(f"Output file already exists: {tgt}")
             shutil.copy2(src, tgt)
         print(f"Copied {len(plan)} remapped files to {output_folder}")
+        if missing_destinations:
+            print_missing_destinations(missing_destinations)
         return
 
     # In-place rename with temporary names to avoid collisions.
@@ -174,6 +190,12 @@ def execute_plan(
         temp.rename(tgt)
 
     print(f"Renamed {len(plan)} files.")
+
+
+def print_missing_destinations(missing_destinations: list[int]) -> None:
+    unique_destinations = sorted(set(missing_destinations))
+    print("Note: the following destination track numbers were not remapped because source tracks were not found:")
+    print("  " + ", ".join(str(dest) for dest in unique_destinations))
 
 
 def main() -> int:
@@ -199,6 +221,7 @@ def main() -> int:
         return 0
 
     output_folder = Path(args.output_folder) if args.output_folder else None
+    missing_destinations = find_missing_destinations(files, mapping)
     plan = build_plan(
         files,
         mapping,
@@ -215,7 +238,7 @@ def main() -> int:
         print("Fix conflicts before running the script.")
         return 1
 
-    execute_plan(plan, args.dry_run, Path(args.output_folder) if args.output_folder else None)
+    execute_plan(plan, args.dry_run, output_folder, missing_destinations)
     return 0
 
 
