@@ -1,6 +1,6 @@
 # Star Fox MSU-1 PCM Set
   
-Here are the sources for my PCM set for my Star Fox MSU-1 patch. This was really made for testing, but since it's the only one really set up correctly for my patch, I figured I may as well release it.
+Here are the sources for my PCM set for [my Star Fox MSU-1 patch](https://rhpz.org/33710). This was really made for testing, but since it's the only one really set up correctly for my patch, I figured I may as well release it.
   
 Tracklist is located in `tracklist.ods` (LibreOffice spreadsheet).
   
