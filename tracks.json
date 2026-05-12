@@ -2,7 +2,7 @@
 	"$schema": "https://raw.githubusercontent.com/qwertymodo/msupcmplusplus/master/configs/schema#",
 	"game": "Star Fox",
 	"normalization": -18,
-	"output_prefix": "SF",
+	"output_prefix": "sf_msu1",
 	"verbosity": 3,
 	"tracks": [
 		{
