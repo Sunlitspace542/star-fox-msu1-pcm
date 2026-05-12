@@ -8,4 +8,4 @@ Also included are tools to convert sets made for the Zeldix patch for use with m
   
 To build the set, run `msupcm.exe`.
   
-This set is modified from [Aelieth's Church of Kondo set] with some changes/additions so it would work with my track mapping instead of the janky Zeldix one.
+This set is modified from [Aelieth's Church of Kondo set](https://www.youtube.com/watch?v=9xkIiPP-bqs) with some changes/additions so it would work with my track mapping instead of the janky Zeldix one.
