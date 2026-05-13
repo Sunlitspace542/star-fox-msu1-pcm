@@ -10,4 +10,4 @@ To build the set, run `msupcm.exe`.
   
 This set is modified from [Aelieth's Church of Kondo set](https://www.youtube.com/watch?v=9xkIiPP-bqs) with some changes/additions so it would work with my track mapping instead of the janky Zeldix one.
   
-Thanks to qwertymodo for his [MSUPCM++](https://github.com/qwertymodo/msupcmplusplus) tool.
+Thanks to qwertymodo for their [MSUPCM++](https://github.com/qwertymodo/msupcmplusplus) tool.
