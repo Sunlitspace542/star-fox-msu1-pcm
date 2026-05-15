@@ -1,7 +1,7 @@
 {
 	"$schema": "https://raw.githubusercontent.com/qwertymodo/msupcmplusplus/master/configs/schema#",
 	"game": "Star Fox",
-	"normalization": -20,
+	"normalization": -18,
 	"output_prefix": "sf_msu1",
 	"verbosity": 3,
 	"tracks": [
@@ -61,7 +61,7 @@
 				},
 				{
 					"option": 2,
-					"loop": 545357
+					"loop": 83412
 				}
 			]
 		},
@@ -226,7 +226,7 @@
 				},
 				{
 					"option": 2,
-					"loop": 90471
+					"loop": 77731
 				}
 			]
 		},
@@ -271,7 +271,7 @@
 				},
 				{
 					"option": 2,
-					"loop": 323173
+					"loop": 331505
 				}
 			]
 		},
@@ -331,7 +331,7 @@
 				},
 				{
 					"option": 2,
-					"loop": 687859
+					"loop": 284820
 				}
 			]
 		},
@@ -376,7 +376,7 @@
 				},
 				{
 					"option": 2,
-					"loop": 1349300
+					"loop": 522672
 				}
 			]
 		},
@@ -451,7 +451,7 @@
 				},
 				{
 					"option": 2,
-					"loop": 279722
+					"loop": 297158
 				}
 			]
 		},
@@ -721,7 +721,7 @@
 				},
 				{
 					"option": 2,
-					"loop": 714448
+					"loop": 1286787
 				}
 			]
 		},
